@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://k0.com.br/soa/soap"
+           targetNamespace="http://k0.com.br/soa/soap"
+           elementFormDefault="qualified">
+
+  <!-- Consultar satélite por ID -->
+  <xs:element name="GetSatelliteRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetSatelliteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="xs:long"/>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="operatorName" type="xs:string"/>
+        <xs:element name="tleLine1" type="xs:string"/>
+        <xs:element name="tleLine2" type="xs:string"/>
+        <xs:element name="status" type="xs:string"/>
+        <xs:element name="registeredAt" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Registrar alerta -->
+  <xs:element name="RegisterAlertRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="satelliteId" type="xs:long"/>
+        <xs:element name="alertType" type="xs:string"/>
+        <xs:element name="severity" type="xs:string"/>
+        <xs:element name="message" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="RegisterAlertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="alertId" type="xs:long"/>
+        <xs:element name="status" type="xs:string"/>
+        <xs:element name="timestamp" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
